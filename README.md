@@ -1,5 +1,5 @@
 # Simple-Plex-Renaming-Script
-This is a simple script to procedurally rename all files to Plex compliant names
+This is a simple script to procedurally rename all files in a given directory to Plex compliant names
 
 For this script to work, a few assumptions are made
 
