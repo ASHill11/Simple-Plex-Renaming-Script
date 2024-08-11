@@ -16,10 +16,13 @@ def main():
     marker = 1
     warning = ''
     target = ''
+    global debug
+    debug = 0
 
     while True:
         marker_dict = { -9: 'UNHANDLED EVENT!\n', 
-                        -1: 'Invalid file path!\n', 
+                        -1: 'Invalid file path!\n',
+                         99:'DEBUG ACTIVATED\n', 
                          1:'',
                          2:'', 
                          3: f'{info[0]}\n{info[1]}\n{info[2]}\n{info[3]} episodes renamed\n{info[4]} files skipped\n{warning}',
@@ -27,14 +30,20 @@ def main():
                          5:''}
 
         os.system('cls||clear')
-        #print(f'MARKER IS {marker}!') # DEBUG
+        print(f'MARKER IS {marker}!') # DEBUG
         print( '------------------------------------------\n'
               f'{marker_dict[marker]}'        
                '------------------------------------------')
         
-        if abs(marker) == 1 or marker == 4 or marker == 5:
+        if marker == -9:
+            print('Exiting due to exception')
+            exit()
+
+        if abs(marker) == 1 or marker == 4 or marker == 5 or marker == 99:
             warning = ''
             target, marker = select(target, marker)
+            if marker == 99:
+                continue
 
             raw = target.split('\\')
             if len(raw) < 4:
@@ -62,7 +71,7 @@ def main():
 
         elif marker == 3:
             while True:
-                selection = input('Enter UNDO to revert changes, or input another file path\n>')
+                selection = input('Enter UNDO to revert changes, or input another file path\nEnter \"exit\" to quit\n>')
 
                 if not selection:
                     delete_lines(2)
@@ -94,6 +103,7 @@ def main():
         
 
 def select(target, marker):
+    global debug
 
     if marker == 5:
         pass
@@ -101,11 +111,19 @@ def select(target, marker):
         target = input('Drag and drop or paste path to first episode:\n'
                         '>')
         
+    if target == 'DEBUG':
+        debug = 1
+        
     if target:
         if target[0] == '&':
             target = target[2:].strip('\'')
+        
         else:
-            target = target.strip('"') 
+            if target == 'DEBUG':
+                return '', 99
+            else:
+                target = target.strip('"') 
+                
     else:
         return '', -1
     
@@ -121,6 +139,8 @@ def select(target, marker):
 
 
 def rename(name, dir, ext):
+    global debug
+
     named = 0
     skipped = 0
 
@@ -133,7 +153,10 @@ def rename(name, dir, ext):
         checked_ext = file[file.rfind('.'):]
         if checked_ext == ext:
             filename = name + f' S01E{e:02d}'
-            os.replace(dir + file, dir + filename + ext)
+            if debug == 1:
+                pass
+            else:
+                os.replace(dir + file, dir + filename + ext)
             named += 1
         else:
             print(f'Skipped over {file}') # DEBUG
