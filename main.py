@@ -152,7 +152,7 @@ def rename(name, dir, ext):
     for file in os.listdir(dir):
         checked_ext = file[file.rfind('.'):]
         if checked_ext == ext:
-            filename = name + f' S01E{e:02d}'
+            filename = name + f' S{dir[-3:-1]}E{e:02d}'
             if debug == 1:
                 pass
             else:
