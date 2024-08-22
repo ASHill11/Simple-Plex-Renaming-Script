@@ -30,7 +30,7 @@ def main():
                          5:''}
 
         os.system('cls||clear')
-        print(f'MARKER IS {marker}!') # DEBUG
+        #print(f'MARKER IS {marker}!') # DEBUG
         print( '------------------------------------------\n'
               f'{marker_dict[marker]}'        
                '------------------------------------------')
