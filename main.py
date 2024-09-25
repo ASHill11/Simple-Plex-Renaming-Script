@@ -9,6 +9,7 @@ Only tested for Windows 11 and 10
 #TODO: Implement a logging system, and perhaps a way to restore changes from the log
 
 import os, sys
+import time
 
 
 def main():
@@ -152,7 +153,7 @@ def rename(name, dir, ext):
     for file in os.listdir(dir):
         checked_ext = file[file.rfind('.'):]
         if checked_ext == ext:
-            filename = name + f' S{dir[-3:-1]}E{e:02d}'
+            filename = name + f' S{dir[38:40]}E{e:02d}'
             if debug == 1:
                 pass
             else:
