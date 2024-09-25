@@ -84,7 +84,7 @@ def main():
                         break
 
                     if selection.lower() == 'exit':
-                       exit('Exiting!')
+                       exit()
                     else:
                         delete_lines(2)
                         continue
