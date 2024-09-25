@@ -130,7 +130,7 @@ def select(target, marker):
     if not os.path.isfile(target):
         if target.isalpha():
             if target.lower() == 'exit':
-                exit('Exiting!')
+                exit()
         else:
             return '', -1
          
