@@ -11,6 +11,10 @@ Only tested for Windows 11 and 10
 import os, sys
 import time
 
+try:
+    argument = sys.argv[1]
+except:
+    argument = None
 
 def main():
     info = [0,1,2,3,4]
@@ -109,8 +113,11 @@ def select(target, marker):
     if marker == 5:
         pass
     else:
-        target = input('Drag and drop or paste path to first episode:\n'
-                        '>')
+        if argument:
+            target = argument
+        else:
+            target = input('Drag and drop or paste path to first episode:\n'
+                            '>')
         
     if target == 'DEBUG':
         debug = 1
@@ -160,7 +167,7 @@ def rename(name, dir, ext):
                 os.replace(dir + file, dir + filename + ext)
             named += 1
         else:
-            print(f'Skipped over {file}') # DEBUG
+            #print(f'Skipped over {file}') # DEBUG
             skipped += 1
         e+=1
     
