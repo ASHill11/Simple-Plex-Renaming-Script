@@ -8,6 +8,8 @@ For this script to work, a few assumptions are made
 
 >~\Shows\Fate Zero\Season 01\Fate Zero episode 1 [1080p].mp4
 
+>~\Shows\Mongatari\Season 01 - Bakemonogatari\Hitagi Crab pt1.mov
+
 Any directory higher than \Shows\ does not matter.
 
 **2** - The episodes are already in the correct order
