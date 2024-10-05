@@ -4,11 +4,11 @@ This is a simple script to procedurally rename all files in a given directory to
 For this script to work, a few assumptions are made
 
 **1** - Your directory scheme is setup and named appropriately. Such as:  
->~\TV Shows\SHOWNAME\Season XX\Episode.mkv
+>~\Shows\SHOWNAME\Season XX\Episode.mkv
 
->~\TV Shows\Fate Zero\Season 01\\[Legitimate purchase] Fate Zero episode 1 [1080p].mp4
+>~\Shows\Fate Zero\Season 01\Fate Zero episode 1 [1080p].mp4
 
-Any directory higher than \TV Shows\ does not matter.
+Any directory higher than \Shows\ does not matter.
 
 **2** - The episodes are already in the correct order
 
