@@ -20,7 +20,7 @@ def rename(name, dir, ext):
     for file in os.listdir(dir):
         checked_ext = file[file.rfind('.'):]
         if checked_ext == ext:
-            filename = name + f' S{dir[38:40]}E{e:02d}'
+            filename = name + f' S{dir[34:36]}E{e:02d}'
             os.replace(dir + file, dir + filename + ext)
             named += 1
         else:
