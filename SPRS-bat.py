@@ -20,7 +20,7 @@ def rename(name, dir, ext):
     for file in os.listdir(dir):
         checked_ext = file[file.rfind('.'):]
         if checked_ext == ext:
-            filename = name + f' S{dir[34:36]}E{e:02d}'
+            filename = name + f' S{dir[38:40]}E{e:02d}'
             os.replace(dir + file, dir + filename + ext)
             named += 1
         else:
@@ -59,7 +59,7 @@ def main():
     while True:
         os.system('cls||clear')
         print('------------------------------------------')
-        print(f'{info[0]}\n{info[1]}\n{info[2]}\n{info[3]} episodes renamed\n{info[4]} files skipped')
+        print(f'{info[0]}\n{info[1]}\n{info[2]}\n{info[3]} episodes renamed\n{info[4]} files skipped\n{dir}')
         print('------------------------------------------')
         if flag == 1: print('PRESS ENTER AGAIN TO EXIT')
         selection = input('Enter UNDO to revert changes or EXIT to quit:\n>')
